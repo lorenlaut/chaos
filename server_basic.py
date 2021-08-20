@@ -52,7 +52,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         # Default request URL without additional path info (main response page)
         if self.path == '/':
 
-            message = "<h1>Enjoy your life</h1>"
+            message = "<h1>Enjoy some classic television</h1>"
             message += "<h1>What to watch next....</h1>"
 
             # Generate User ID between 1 and 4
