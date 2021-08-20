@@ -136,14 +136,15 @@ def get_metadata():
             'instance_id: %s' % ec2_metadata.instance_id,
             'instance_type: %s' % ec2_metadata.instance_type,
             'private_hostname: %s' % ec2_metadata.private_hostname,
-            'private_ipv4: %s' % ec2_metadata.private_ipv4
+            'private_ipv4: %s' % ec2_metadata.private_ipv4,
+	    'environment: %s' % ec2_metadata.availability_zone
         ]
-        if message_parts[2] == 'us-east-2a':
-            message_parts[2] = 'Prod1'
-        elif  message_parts[2] == 'us-east-2b':
-            message_parts[2] = 'Prod2'
+        if message_parts[7] == 'environment: us-east-2a':
+            message_parts[7] = 'environment: Production Server One'
+        elif  message_parts[7] == 'environment: us-east-2b':
+            message_parts[7] = 'environment: Production Server Two'
         else: 
-            message_parts[2] = 'Prod3'
+            message_parts[7] = 'environment: Production Server Three'
 
         metadata += '<br>'.join(message_parts)
     except Exception:
