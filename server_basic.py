@@ -205,15 +205,15 @@ def run(argv):
     server_port = 80
     server_ip = '0.0.0.0'
     try:
-        region = ec2_metadata.region
+        availability_zone = ec2_metadata.availability_zone
 
-        if region == 'us-east-2a':
+        if availability_zone == 'us-east-2a':
 	        print('Prod 1')
 
-        elif region == 'us-east-2b':
+        elif availability_zone == 'us-east-2b':
             print('Prod 2')
             
-        elif region == 'us-east-2c':
+        elif availability_zone == 'us-east-2c':
             print('Prod 3')
 
     except:
