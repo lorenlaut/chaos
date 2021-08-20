@@ -52,8 +52,8 @@ class RequestHandler(BaseHTTPRequestHandler):
         # Default request URL without additional path info (main response page)
         if self.path == '/':
 
-            message = "<h1>Chaos Engineering and Site Reliability Engineering</h1>"
-            # message += "<h1>New Header</h1>"
+            message = "<h1>Enjoy your life</h1>"
+            message += "<h1>What to watch next....</h1>"
 
             # Generate User ID between 1 and 4
             # This currently uses a randomly generated user.
@@ -206,16 +206,6 @@ def run(argv):
     server_ip = '0.0.0.0'
     try:
         region = ec2_metadata.region
-
-        if region == 'us-east-2a':
-	        print('Prod 1')
-
-        elif region == 'us-east-2b':
-            print('Prod 2')
-            
-        elif region == 'us-east-2c':
-            print('Prod 3')
-
     except:
         region = 'us-east-2'
 
