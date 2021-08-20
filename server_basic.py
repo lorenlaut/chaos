@@ -133,21 +133,18 @@ def get_metadata():
             'account_id: %s' % ec2_metadata.account_id,
             'ami_id: %s' % ec2_metadata.ami_id,
             'availability_zone: %s' % ec2_metadata.availability_zone,
-		availability_zone = ec2_metadata.availability_zone
-
-        if availability_zone == 'us-east-2a':
-	        print('Prod 1')
-
-        elif availability_zone == 'us-east-2b':
-            print('Prod 2')
-            
-        elif availability_zone == 'us-east-2c':
-            print('Prod 3')
             'instance_id: %s' % ec2_metadata.instance_id,
             'instance_type: %s' % ec2_metadata.instance_type,
             'private_hostname: %s' % ec2_metadata.private_hostname,
             'private_ipv4: %s' % ec2_metadata.private_ipv4
         ]
+        if message_parts[2] == 'us-east-2a':
+            message_parts[2] = 'Prod1'
+        elif  message_parts[2] == 'us-east-2b':
+            message_parts[2] = 'Prod2'
+        else: 
+            message_parts[2] = 'Prod3'
+
         metadata += '<br>'.join(message_parts)
     except Exception:
         metadata += "Running outside AWS"
@@ -211,8 +208,23 @@ def run(argv):
         sys.exit(2)
     print(opts)
 
-   
+    # Default value - will be over-written if supplied via args
+    server_port = 80
+    server_ip = '0.0.0.0'
+    try:
+        region = ec2_metadata.region
 
+        if region == 'us-east-2a':
+	        print('Prod 1')
+
+        elif region == 'us-east-2b':
+            print('Prod 2')
+            
+        elif region == 'us-east-2c':
+            print('Prod 3')
+
+    except:
+        region = 'us-east-2'
 
     # Get commandline arguments
     for opt, arg in opts:
