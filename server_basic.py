@@ -114,29 +114,14 @@ class RequestHandler(BaseHTTPRequestHandler):
         return
 
 # Utility function to consistently format how recommendations are displayed
-#def recommendation_message (user_name, tv_show, is_custom_reco):
-#   if is_custom_reco:
-#       tag_line = "your recommendation is"
-#   else:
-#       tag_line = "everyone enjoys this classic"
-#   cell1 = "<b>" + user_name + "</b>, " + tag_line + ":"
-#   cell2 = "<b>" + tv_show + "</b>"
-#   reco_msg = "<table border=\"5\"><tr>" + "<td>" + cell1 + "</td>" + "<td>" + cell2 + "</td>" + "</tr></table>"
-#   return reco_msg
-
-def recommendation_message ():
-    try:
-        prod_parts = [
-	    'environment: %s' % ec2_metadata.availability_zone
-        ]
-        if prod_parts[0] == 'environment: us-east-2a':
-            prod_parts[0] = 'Production Server One'
-        elif  prod_parts[0] == 'environment: us-east-2b':
-            prod_parts[0] = 'Production Server Two'
-        else: 
-            prod_parts[0] = 'Production Server Three'
-
-    recommendation_message += '<br>'.join(prod_parts)
+def recommendation_message (user_name, tv_show, is_custom_reco):
+    if is_custom_reco:
+        tag_line = "your recommendation is"
+    else:
+        tag_line = "everyone enjoys this classic"
+    cell1 = "<b>" + user_name + "</b>, " + tag_line + ":"
+    cell2 = "<b>" + tv_show + "</b>"
+    reco_msg = "<table border=\"5\"><tr>" + "<td>" + cell1 + "</td>" + "<td>" + cell2 + "</td>" + "</tr></table>"
     return reco_msg
 
 # Retrieve Metadata which can be useful to students 
@@ -229,6 +214,16 @@ def run(argv):
     server_ip = '0.0.0.0'
     try:
         region = ec2_metadata.region
+
+        if region == 'us-east-2a':
+	        print('Prod 1')
+
+        elif region == 'us-east-2b':
+            print('Prod 2')
+            
+        elif region == 'us-east-2c':
+            print('Prod 3')
+
     except:
         region = 'us-east-2'
 
