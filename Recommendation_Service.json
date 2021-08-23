@@ -1,0 +1,94 @@
+{
+  "RecommendationService": [
+    {
+      "PutRequest": {
+        "Item": {
+          "Result": {
+            "S": "test"
+          },
+          "ServiceAPI": {
+            "S": "getRecommendation"
+          },
+          "UserID": {
+            "N": "0"
+          },
+          "UserName": {
+            "S": "test"
+          }
+        }
+      }
+    },    
+    {
+      "PutRequest": {
+        "Item": {
+          "Result": {
+            "S": "SRE_CE Capability"
+          },
+          "ServiceAPI": {
+            "S": "getRecommendation"
+          },
+          "UserID": {
+            "N": "1"
+          },
+          "UserName": {
+            "S": "Christian"
+          }
+        }
+      }
+    },    
+    {
+      "PutRequest": {
+        "Item": {
+          "Result": {
+            "S": "Chaos Engineering"
+          },
+          "ServiceAPI": {
+            "S": "getRecommendation"
+          },
+          "UserID": {
+            "N": "2"
+          },
+          "UserName": {
+            "S": "Mark"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "Result": {
+            "S": "Site Reliability"
+          },
+          "ServiceAPI": {
+            "S": "getRecommendation"
+          },
+          "UserID": {
+            "N": "3"
+          },
+          "UserName": {
+            "S": "Riyadh"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "Result": {
+            "S": "DevOPS"
+          },
+          "ServiceAPI": {
+            "S": "getRecommendation"
+          },
+          "UserID": {
+            "N": "4"
+          },
+          "UserName": {
+            "S": "Mirah"
+          }
+        }
+      }
+    }    
+  ]
+}
